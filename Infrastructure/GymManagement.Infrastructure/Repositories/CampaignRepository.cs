@@ -15,6 +15,13 @@ namespace GymManagement.Infrastructure.Repositories
         {
 
         }
-       
     }
+
+
+
+
+
+
+
+
 }
