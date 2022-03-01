@@ -1,0 +1,21 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using GymManagement.Application.Interfaces.Repositories;
+using GymManagement.Infrastructure.Repositories;
+using Microsoft.Extensions.DependencyInjection;
+
+namespace GymManagement.Infrastructure.DependencyContainers
+{
+    public static class DependencyContainer
+    {
+        public static void AddInfrastructureServices(this IServiceCollection services)
+        {
+
+            services.AddScoped<ICampaignRepository, CampaignRepository>();
+
+        }
+    }
+}

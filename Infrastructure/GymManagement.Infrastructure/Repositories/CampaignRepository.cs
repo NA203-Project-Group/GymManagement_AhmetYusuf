@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace GymManagement.Infrastructure.Repositories
 {
-    public class CampaignRepository:RepositoryBase<Campaign>
+    public class CampaignRepository:RepositoryBase<Campaign>,ICampaignRepository
     {
         public CampaignRepository(GymManagementDbContext context): base(context)
         {
