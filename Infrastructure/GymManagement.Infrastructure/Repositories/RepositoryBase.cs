@@ -1,5 +1,7 @@
 ﻿using GymManagement.Application.Interfaces.Repositories;
 using GymManagement.Domain.Entities;
+using GymManagement.Infrastructure.Contexts;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,29 +13,40 @@ namespace GymManagement.Infrastructure.Repositories
 {
     public class RepositoryBase<T> : IRepositoryBase<T>where T:BaseEntity
     {
+       private readonly DbSet<T> _dbSet;
+        public RepositoryBase(GymManagementDbContext context)
+        {
+            _dbSet = context.Set<T>();
+        }
+
         public void Create(T entity)
         {
-            throw new NotImplementedException();
+            _dbSet.Add(entity);
         }
 
         public void Delete(T entity)
         {
-            throw new NotImplementedException();
+            _dbSet.Remove(entity);
         }
 
-        public List<T> GetAll(Expression<Func<T, bool>> filter = null)
+        public List<T> Get(Expression<Func<T, bool>> filter)
         {
-            throw new NotImplementedException();
+            return _dbSet.Where(filter).ToList();
+        }
+
+        public List<T> GetAll()
+        {
+            return _dbSet.ToList();
         }
 
         public T GetById(int id)
         {
-            throw new NotImplementedException();
+            return _dbSet.SingleOrDefault(p=>p.Id==id);
         }
 
         public void Update(T entity)
         {
-            throw new NotImplementedException();
+            _dbSet.Update(entity);
         }
     }
 }
