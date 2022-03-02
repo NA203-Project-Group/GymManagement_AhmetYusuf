@@ -1,4 +1,5 @@
 ﻿using GymManagement.Application.Interfaces.Repositories;
+using GymManagement.Infrastructure.Contexts;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,7 @@ namespace GymManagement.Infrastructure.UnitOfWorks
 {
     public class UnitOfWork
     {
+        private readonly GymManagementDbContext _context;
         public ICampaignRepository Campaigns { get; }
         public IEmployeeDetailRepository EmployeeDetails { get; }
         public IEquipmentRepository Equipments { get; }
@@ -39,7 +41,7 @@ namespace GymManagement.Infrastructure.UnitOfWorks
 
         public bool SaveChanges()
         {
-            throw new NotImplementedException();
+            return _context.SaveChanges()>0;
         }
 
 
