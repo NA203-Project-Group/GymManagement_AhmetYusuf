@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using GymManagement.Application.ViewModels.CampaignViewModel;
+using GymManagement.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,5 +11,11 @@ namespace GymManagement.Application.Mapping
 {
     public class CampaignMappingProfile:Profile
     {
+
+        public CampaignMappingProfile()
+        {
+            CreateMap<Campaign, CampaignQueryViewModel>().ReverseMap();
+            CreateMap<CampaignCommandViewModel, Campaign>().ReverseMap();
+        }
     }
 }

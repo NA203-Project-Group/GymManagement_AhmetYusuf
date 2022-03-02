@@ -15,7 +15,6 @@ namespace GymManagement.Infrastructure.Contexts
 
         }
 
-        public DbSet<Worker>Workers { get; set; }
         public DbSet<Campaign> Campaigns { get; set; }
         public DbSet<EmployeeDetail> EmployeeDetails { get; set; }
         public DbSet<Equipment> Equipments { get; set; }
