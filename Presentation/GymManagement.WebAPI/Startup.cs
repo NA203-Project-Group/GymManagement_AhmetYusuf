@@ -11,9 +11,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using GymManagement.Application.Interfaces.Repositories;
-using GymManagement.Infrastructure;
-using GymManagement.Infrastructure.DependencyContainers;
-using GymManagement.Infrastructure.Repositories;
+
 
 namespace GymManagement.WebAPI
 {
@@ -31,8 +29,6 @@ namespace GymManagement.WebAPI
         {
 
             services.AddControllers();
-
-            services.AddInfrastructureServices();
 
             services.AddSwaggerGen(c =>
             {
